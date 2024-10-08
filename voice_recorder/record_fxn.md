@@ -39,6 +39,7 @@ RATE: The sample rate of the audio, defined in Hz (here, 16000 samples per secon
 ## 3. Instantiating the PyAudio Object
 
 p = pyaudio.PyAudio()
+
 pyaudio.PyAudio(): This creates a PyAudio instance, which is the interface to the PortAudio system for handling input/output streams.
 
 ## 4. Opening the Stream
