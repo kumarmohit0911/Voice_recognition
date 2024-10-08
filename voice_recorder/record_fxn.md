@@ -38,34 +38,34 @@ RATE: The sample rate of the audio, defined in Hz (here, 16000 samples per secon
 
 ## 3. Instantiating the PyAudio Object
 
-p = pyaudio.PyAudio()
+`p = pyaudio.PyAudio()`
 
-pyaudio.PyAudio(): This creates a PyAudio instance, which is the interface to the PortAudio system for handling input/output streams.
+`pyaudio.PyAudio()` : This creates a PyAudio instance, which is the interface to the PortAudio system for handling input/output streams.
 
 ## 4. Opening the Stream
 
-stream = p.open(format=FORMAT,
+`stream = p.open(format=FORMAT,
                 channels=CHANNELS,
                  rate=RATE,
                   input=True,
-                   frames_per_buffer=FRAMES_PER_BUFFER)
-p.open(): Opens a new audio stream for recording.
-format=FORMAT: Specifies the format of the audio stream (16-bit samples here).
-channels=CHANNELS: Sets the number of audio channels (mono here).
-rate=RATE: Defines the sample rate of the audio.
-input=True: Specifies that this stream is for recording (audio input).
-frames_per_buffer=FRAMES_PER_BUFFER: Specifies the number of frames per buffer. This breaks the audio into smaller chunks for processing.
+                   frames_per_buffer=FRAMES_PER_BUFFER)`
+`p.open()` : Opens a new audio stream for recording.
+`format=FORMAT`: Specifies the format of the audio stream (16-bit samples here).
+`channels=CHANNELS`: Sets the number of audio channels (mono here).
+`rate=RATE`: Defines the sample rate of the audio.
+`input=True`: Specifies that this stream is for recording (audio input).
+`frames_per_buffer=FRAMES_PER_BUFFER`: Specifies the number of frames per buffer. This breaks the audio into smaller chunks for processing.
 
 ## 5. Recording Audio
 
 
-print("start recording")
-seconds = 5
-frames = []
+`print("start recording")`
+`seconds = 5`
+`frames = []`
 
-for i in range(0, int(RATE / FRAMES_PER_BUFFER * seconds)):
+`for i in range(0, int(RATE / FRAMES_PER_BUFFER * seconds)):
     data = stream.read(FRAMES_PER_BUFFER)
-    frames.append(data)
+    frames.append(data)`
 
 stream.read(FRAMES_PER_BUFFER): Reads audio data from the input device, based on the buffer size.
 for i in range(...): Loops over the defined duration (in this case, 5 seconds) to record the audio in chunks.
